@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -7,6 +7,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 import {makeStyles} from "@material-ui/styles";
 import {Container} from "@material-ui/core";
+
+import {LoginForm} from "./components/LoginForm";
+import {Dashboard} from "./components/Dashboard";
 
 const useStyles = makeStyles(theme => ({
   app: {
@@ -37,7 +40,7 @@ const App = () => {
         </Toolbar>
       </AppBar>
       <Container>
-        {loggedIn ? <h1>Logged in</h1>: <h1>Please log in</h1>}
+        {loggedIn ? <Dashboard />: <LoginForm logIn={() => setLoggedIn(true)}/>}
       </Container>
     </div>
   );
