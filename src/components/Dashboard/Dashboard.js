@@ -1,13 +1,31 @@
 import React from 'react';
-import Typography from "@material-ui/core/Typography";
-import {Container} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
+import {makeStyles} from "@material-ui/styles";
 
-export const Dashboard = () => {
+import {SideNav} from "../SideNav";
+import Container from "@material-ui/core/Container";
+
+const useStyles = makeStyles(theme => ({
+  content: {
+    flexGrow: 1,
+    height: '100vh',
+    overflow: 'auto',
+    paddingTop: 88,
+  },
+}));
+
+export const Dashboard = ({sideNavOpen, setSideNavOpen}) => {
+  const classes = useStyles();
   return (
-    <Container>
-      <Typography variant="h4">
-        TODO Implement Dashboard component
-      </Typography>
-    </Container>
+    <>
+      <SideNav open={sideNavOpen} setOpen={setSideNavOpen} />
+      <main className={classes.content}>
+        <Container>
+          <Typography variant="h4">
+            Dashboard
+          </Typography>
+        </Container>
+      </main>
+    </>
   );
 };
