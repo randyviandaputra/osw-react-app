@@ -1,6 +1,23 @@
-# Installation
+# osw-react-app
 
-## General setup
+Before you start, install dependencies:
+```
+yarn install
+```
 
-- Install [Yarn](https://yarnpkg.com)
-- Run `yarn install`
+Development mode:
+```
+yarn start
+```
+
+To test production version, build the application:
+```
+yarn run build
+```
+
+And run command:
+```
+yarn run prod
+```
+
+Node based http server will be started on port 8080
