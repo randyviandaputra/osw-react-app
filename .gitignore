@@ -1,13 +1,10 @@
-# phpstorm project files
+# IDE
 .idea
-
-# netbeans project files
 nbproject
-
-# zend studio for eclipse project files
 .buildpath
 .project
 .settings
+.vscode/
 
 # windows thumbnail cache
 Thumbs.db
@@ -15,11 +12,11 @@ Thumbs.db
 # Mac DS_Store Files
 .DS_Store
 
-# Dependency directory
+# Dependency directories
 /node_modules
-# IDE
-.vscode/
-.idea/
+jspm_packages/
+/.pnp
+.pnp.js
 
 # Logs
 logs
@@ -55,10 +52,6 @@ bower_components
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directories
-node_modules/
-jspm_packages/
-
 # Typescript v1 declaration files
 typings/
 
@@ -87,11 +80,6 @@ api-docs/
 /dist
 /dist10
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
 # testing
 /coverage
 
@@ -108,4 +96,3 @@ api-docs/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
