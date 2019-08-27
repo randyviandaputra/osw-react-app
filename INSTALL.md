@@ -1,4 +1,8 @@
-# osw-react-app
+# Installation
+
+## General setup
+
+- Install [Yarn](https://yarnpkg.com)
 
 Before you start, install dependencies:
 ```
