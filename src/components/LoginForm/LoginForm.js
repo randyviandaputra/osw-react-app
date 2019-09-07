@@ -1,15 +1,16 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
+import Link from '@material-ui/core/Link'
+import Grid from '@material-ui/core/Grid'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
+import Typography from '@material-ui/core/Typography'
+import {makeStyles} from '@material-ui/core/styles'
+import Container from '@material-ui/core/Container'
+import useInputState from '../../hooks/useInputState'
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -34,10 +35,17 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-}));
+}))
 
 export const LoginForm = ({logIn}) => {
-  const classes = useStyles();
+  const classes = useStyles()
+  const [emailValue, handleEmailValueChange] = useInputState('')
+  const [passwordValue, handlePasswordValueChange] = useInputState('')
+
+  const handleAuthLogin = () => {
+    const data = {email: emailValue, password: passwordValue}
+    console.log(data)
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -59,6 +67,7 @@ export const LoginForm = ({logIn}) => {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={handleEmailValueChange}
           />
           <TextField
             variant="outlined"
@@ -70,6 +79,7 @@ export const LoginForm = ({logIn}) => {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={handlePasswordValueChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -80,7 +90,8 @@ export const LoginForm = ({logIn}) => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={() => logIn()}
+            // onClick={() => logIn()}
+            onClick={handleAuthLogin}
           >
             Sign In
           </Button>
@@ -99,5 +110,5 @@ export const LoginForm = ({logIn}) => {
         </form>
       </div>
     </Container>
-  );
-};
+  )
+}
